@@ -34,6 +34,11 @@
                             class="border-2 p-1 border-black rounded-2xl w-full cursor-pointer hover:bg-black hover:text-white transition-all">Login</button>
                     </div>
                 </NuxtLink>
+                <NuxtLink to="/signup" v-if="!store.isAuthenticated">
+                    <div class="h-full w-25"><button
+                            class="border-2 p-1 border-black rounded-2xl w-full cursor-pointer hover:bg-black hover:text-white transition-all">signup</button>
+                    </div>
+                </NuxtLink>
 
                 <div v-if="store.isAuthenticated" @click="Logout()" class="h-full w-25"><button
                         class="border-2 p-1 border-black rounded-2xl w-full cursor-pointer hover:bg-black hover:text-white transition-all">Log

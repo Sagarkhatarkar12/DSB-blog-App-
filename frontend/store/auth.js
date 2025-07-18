@@ -7,8 +7,30 @@ export const useLoginStore = defineStore("login", {
     accessToken: "",
     user: { },
     isAuthenticated: false,
+    loading:false,//Loader state
+
   }),
   actions: {
+
+
+async registerUser(Payload){
+     this.loading = true;
+     console.log(Payload)
+     try{
+      const res  = await fetch('http://localhost:5000/api/signup',{
+        method :'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify(Payload)
+      });
+     }catch(err){
+      console.log(err)
+     }finally{
+      this.loading = false
+     }
+}
+
+
+,
     Logout(){
       // console.log("logout");
       this.accessToken = "";
